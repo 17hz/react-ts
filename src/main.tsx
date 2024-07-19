@@ -10,6 +10,14 @@ import { routeTree } from './routeTree.gen'
 
 // Create a new router instance
 const router = createRouter({ routeTree })
+
+// https://tanstack.com/router/latest/docs/framework/react/guide/type-safety#exported-hooks-components-and-utilities
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router
+  }
+}
+
 const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
