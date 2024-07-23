@@ -1,0 +1,78 @@
+export const operations = {
+  addPet: {
+    path: '/pet',
+    method: 'post',
+  },
+  updatePet: {
+    path: '/pet',
+    method: 'put',
+  },
+  findPetsByStatus: {
+    path: '/pet/findByStatus',
+    method: 'get',
+  },
+  findPetsByTags: {
+    path: '/pet/findByTags',
+    method: 'get',
+  },
+  getPetById: {
+    path: '/pet/:petId',
+    method: 'get',
+  },
+  updatePetWithForm: {
+    path: '/pet/:petId',
+    method: 'post',
+  },
+  deletePet: {
+    path: '/pet/:petId',
+    method: 'delete',
+  },
+  uploadFile: {
+    path: '/pet/:petId/uploadImage',
+    method: 'post',
+  },
+  getInventory: {
+    path: '/store/inventory',
+    method: 'get',
+  },
+  placeOrder: {
+    path: '/store/order',
+    method: 'post',
+  },
+  getOrderById: {
+    path: '/store/order/:orderId',
+    method: 'get',
+  },
+  deleteOrder: {
+    path: '/store/order/:orderId',
+    method: 'delete',
+  },
+  createUser: {
+    path: '/user',
+    method: 'post',
+  },
+  createUsersWithListInput: {
+    path: '/user/createWithList',
+    method: 'post',
+  },
+  loginUser: {
+    path: '/user/login',
+    method: 'get',
+  },
+  logoutUser: {
+    path: '/user/logout',
+    method: 'get',
+  },
+  getUserByName: {
+    path: '/user/:username',
+    method: 'get',
+  },
+  updateUser: {
+    path: '/user/:username',
+    method: 'put',
+  },
+  deleteUser: {
+    path: '/user/:username',
+    method: 'delete',
+  },
+} as const
