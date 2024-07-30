@@ -1,5 +1,5 @@
 import React from 'react'
-import { createRootRoute, Outlet } from '@tanstack/react-router'
+import { createRootRouteWithContext, Outlet } from '@tanstack/react-router'
 
 const TanStackRouterDevtools =
   process.env.NODE_ENV === 'production'
@@ -13,11 +13,15 @@ const TanStackRouterDevtools =
         })),
       )
 
-export const Route = createRootRoute({
-  component: () => (
+export const Route = createRootRouteWithContext()({
+  component: RootComponent,
+})
+
+function RootComponent() {
+  return (
     <>
       <Outlet />
       <TanStackRouterDevtools />
     </>
-  ),
-})
+  )
+}

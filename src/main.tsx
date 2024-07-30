@@ -1,30 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-// import App from './App.tsx'
-import './index.css'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { createRouter, RouterProvider } from '@tanstack/react-router'
-// Import the generated route tree
-import { routeTree } from './routeTree.gen'
+import { HelmetProvider } from 'react-helmet-async'
+import App from './app'
+// tailwind css
+import './global.css'
+// https://github.com/vbenjs/vite-plugin-svg-icons?tab=readme-ov-file#usage
+import 'virtual:svg-icons-register'
 
-// Create a new router instance
-const router = createRouter({ routeTree })
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
-// https://tanstack.com/router/latest/docs/framework/react/guide/type-safety#exported-hooks-components-and-utilities
-declare module '@tanstack/react-router' {
-  interface Register {
-    router: typeof router
-  }
-}
-
-const queryClient = new QueryClient()
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
+root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
+    <HelmetProvider>
+      <React.Suspense>
+        <App />
+      </React.Suspense>
+    </HelmetProvider>
   </React.StrictMode>,
 )
